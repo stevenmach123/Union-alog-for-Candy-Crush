@@ -1,0 +1,550 @@
+<!--
+CandyCrush
+Your Name: KHANG MACH
+Collaborators:
+   I have not discussed the assignment with anybody.
+-->
+<!DOCTYPE html>
+<html>
+<!--
+/* Copyright (c) 2017 MIT 6.813/6.831 course staff, all rights reserved.
+ * Redistribution of original or derived work requires permission of course staff.
+ */
+-->
+
+<head>
+<meta charset="utf-8">
+<title>CandyCrush</title>
+
+<!-- Load style sheets -->
+<link rel="stylesheet" href=
+  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+
+<link rel="stylesheet" href="mainLayout.css">
+
+<!-- Use mobile-aware viewport -->
+<meta name="viewport" content=
+  "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Load any supplemental Javascript libraries here -->
+<script src=
+  "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.2/seedrandom.js">
+</script>
+<script src="candy.js"></script>
+<script src="board.js"></script>
+<script src="rules.js"></script>
+
+
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" id="firstColumn">
+      <div class ="cr1">
+      <!-- Column 1 Code Here -->
+      <h3 style="font:bold;color:red;margin-bottom: 20px">Candy <p>Crush</p></h3>
+      <input type ="button" class ="btn btn-default" id ="but_new" value="New Game"></input> 
+
+      </div>
+  </div>
+
+    <div class="col-md-6"  id="mainColumn">
+
+      <!-- Column 2 Code Here -->
+      <table class="my_table">
+        <tr>
+          <td class ="a1">a1</td>
+          <td class="b1">b1</td>
+          <td class="c1">c1</td>
+          <td class="d1">d1</td>
+          <td class="e1">e1</td>
+          <td class="f1">f1</td>
+          <td class="g1">g1</td>
+          <td class="hh1">h1</td>
+          
+
+        </tr>
+        <tr>
+          <td class="a2">a2</td>
+          <td class="b2">b2</td>
+          <td class="c2">c2</td>
+          <td class="d2">d2</td>
+          <td  class="e2">e2</td>
+          <td  class="f2">f2</td>
+          <td  class="g2">g2</td>
+          <td  class="hh2">h2</td>
+        </tr>
+        <tr>
+          <td class="a3">a3</td>
+          <td class="b3">b3</td>
+          <td class="c3">c3</td>
+          <td class="d3">d3</td>
+          <td class="e3">e3</td>
+          <td class="f3">f3</td>
+          <td class="g3">g3</td>
+          <td class="hh3">h3</td>
+        </tr>
+        <tr>
+          <td class="a4">a4</td>
+          <td class="b4">b4</td>
+          <td class="c4">c4</td>
+          <td class="d4">d4</td>
+          <td class="e4">e4</td>
+          <td class="f4">f4</td>
+          <td class="g4">g4</td>
+          <td class="hh4">h4</td>
+        </tr>
+        <tr>
+          <td class="a5">a5</td>
+          <td class="b5">b5</td>
+          <td class="c5">c5</td>
+          <td class="d5">d5</td>
+          <td class="e5">e5</td>
+          <td class="f5">f5</td>
+          <td class="g5">g5</td>
+          <td class="hh5">h5</td>
+        </tr>
+        <tr>
+          <td class="a6">a6</td>
+          <td class="b6">b6</td>
+          <td class="c6">c6</td>
+          <td class="d6">d6</td>
+          <td class="e6">e6</td>
+          <td class="f6">f6</td>
+          <td class="g6">g6</td>
+          <td class="hh6">h6</td>
+        </tr>
+        <tr>
+          <td class="a7">a7</td>
+          <td class="b7">b7</td>
+          <td class="c7">c7</td>
+          <td class="d7">d7</td>
+          <td class="e7">e7</td>
+          <td class="f7">f7</td>
+          <td class="g7">g7</td>
+          <td class="hh7">h7</td>
+        </tr> 
+        <tr>
+          <td class="a8">a8</td>
+          <td class="b8">b8</td>
+          <td class="c8">c8</td>
+          <td class="d8">d8</td>
+          <td class="e8">e8</td>
+          <td class="f8">f8</td>
+          <td class="g8">g8</td>
+          <td class="hh8">h8</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+    <div class="col-md-3" id="lastColumn">
+
+      <!-- Column 3 Code Here -->
+      <div class="cr3">
+        <label for="fname">Move</label>
+        <input type="text" id="fname" name="fname" style="width:40px;" >
+        <input type ="button" class="btn" style= "margin-left:45px"  id="but_up" value="↑"></input> 
+        <div>
+          <input type ="button" class ="btn btn-default s1" id="but_left" value="←"></input> 
+          <input type ="button" class ="btn btn-default s2" id="but_right" value="→"></input> 
+      </div>
+         <input type ="button" class ="btn" style="margin-left:45px"  id="but_down"  value="↓"></input> 
+         <input type ="button" class ="btn" style="margin-top:30px" id="but_crush"  value="Brush Once"></input> 
+
+
+
+      </div> 
+
+    </div>
+  </div> <!-- class="row" -->
+</div> <!-- class="container" -->
+
+</body>
+
+
+<script>
+
+  // By default, the first board loaded by your page will be the same 
+  // each time you load (which is accomplished by "seeding" the random
+  // number generator. This makes testing (and grading!) easier!
+  Math.seedrandom(0);
+  
+  
+  // A short jQuery extension to read query parameters from the URL.
+  $.extend({
+    getUrlVars: function() {
+      var vars = [], pair;
+      var pairs = window.location.search.substr(1).split('&');
+      for (var i = 0; i < pairs.length; i++) {
+        pair = pairs[i].split('=');
+        vars.push(pair[0]);
+        vars[pair[0]] = pair[1] &&
+            decodeURIComponent(pair[1].replace(/\+/g, ' '));
+      }
+      return vars;
+    },
+    getUrlVar: function(name) {
+      return $.getUrlVars()[name];
+    }
+  });
+  
+  // constants
+  var DEFAULT_BOARD_SIZE = 8;
+  
+  // data model at global scope for easier debugging
+
+
+  
+  var board ;
+  var rules;
+  
+  // initialize board
+  if ($.getUrlVar('size') && $.getUrlVar('size') >= 3) {
+    board = new Board($.getUrlVar('size'));
+  } else {
+    board = new Board(DEFAULT_BOARD_SIZE);
+  }
+  
+  // load a rule
+  rules = new Rules(board);
+
+
+var dboard = document.querySelector(".my_table");
+
+
+// change text color based on background color of Candy
+function textBoard(){
+  
+  var dchi = (dboard.children)[0];
+  dchi = dchi.children;
+  for(var i=0;i<dchi.length ;i++){
+   var chi = dchi[i].children ;
+   
+   for(var y=0;y<chi.length ;y++){
+      
+      if(chi[y].style.backgroundColor != "yellow" &&chi[y].style.backgroundColor != "orange" ){
+         chi[y].style.color = "#b3daff";
+      }
+      if(chi[y].style.backgroundColor == "yellow" ||chi[y].style.backgroundColor == "orange"){
+         chi[y].style.color ="#000000";
+      }
+   }
+  }
+}
+// have row and col from text input, this only called after keyup validate if text input worked and trigger by arrow listener 
+function getfromCandy(){
+  var loc = document.querySelector("#fname").value; 
+  
+  var row = parseInt(loc[1])-1; 
+  var col =  map_col(loc[0].toLowerCase())-1; 
+  
+  return  board.square[row][col];
+
+}
+
+function map_col(w){
+    var col  = {"a":1, "b":2,"c":3,"d":4,"e":5,"f":6,"g":7,"h":8};
+    return  col[w]; 
+
+}
+
+
+var letter  = ["a","b","c","d","e","f","g","h"];
+var num  = [1,2,3,4,5,6,7,8];
+var my_left =  document.querySelector("#but_left"); 
+var my_right = document.querySelector("#but_right"); 
+var my_up  =  document.querySelector("#but_up"); 
+var my_down =  document.querySelector("#but_down");
+var my_crush = document.querySelector("#but_crush");
+var text_field = document.querySelector("#fname");
+var fromCandy =null;
+var toCandy =null;
+
+  
+function what_disable(arr){// disable element array
+  for(var x=0;x<arr.length; x++){
+    console.log("del ",arr[x].id);
+      arr[x].disabled = true; 
+      arr[x].style.backgroundColor ="#d9d9d9";
+  }
+} 
+function one_enable(arrow) { // enable element
+  console.log("add ",arrow.id);
+  arrow.disabled =false; 
+  arrow.style.backgroundColor ="pink"; 
+}
+
+what_disable([my_left,my_right,my_up,my_down,my_crush]);
+text_field.style.backgroundColor = "white";
+
+
+// arrow listener able to click when text input valid 
+$(document).on('click', "#but_up", function(evt){
+
+  fromCandy  =getfromCandy();
+  text_field.value =""; 
+  what_disable([my_left,my_right,my_up,my_down,text_field]);
+  one_enable(my_crush);
+  toCandy = board.getCandyInDirection(fromCandy, "up");
+  board.flipCandies(fromCandy,toCandy); 
+  textBoard();
+ 
+});
+$(document).on('click', "#but_down", function(evt){
+
+  fromCandy  =getfromCandy();
+  text_field.value =""; 
+  what_disable([my_left,my_right,my_up,my_down,text_field]);
+  one_enable(my_crush);
+  toCandy = board.getCandyInDirection(fromCandy,"down");
+  board.flipCandies(fromCandy,toCandy); 
+  textBoard();
+});
+$(document).on('click', "#but_left", function(evt){
+ 
+  fromCandy  =getfromCandy();
+  text_field.value =""; 
+  what_disable([my_left,my_right,my_up,my_down,text_field]);
+  one_enable(my_crush);
+  toCandy = board.getCandyInDirection(fromCandy,"left");
+  board.flipCandies(fromCandy,toCandy); 
+  textBoard();
+})
+
+$(document).on('click', "#but_right", function(evt){
+ 
+  fromCandy  =getfromCandy();
+  text_field.value =""; 
+  what_disable([my_left,my_right,my_up,my_down,text_field]);
+  one_enable(my_crush);
+  toCandy = board.getCandyInDirection(fromCandy, "right");
+  board.flipCandies(fromCandy,toCandy); 
+  textBoard();
+});
+// crush once
+$(document).on('click', "#but_crush", function(evt){
+ 
+  
+   console.log("---");
+   
+  
+   var seq_remove = rules.getCandyCrushes(); 
+ 
+   console.log("d",seq_remove);
+   //console.log(board.getAllColors());
+   
+  rules.removeCrushes(seq_remove);
+   setTimeout(function(){
+     rules.moveCandiesDown();
+     console.log(board.getAllColors());
+     seq_remove = rules.getCandyCrushes(); 
+     if(seq_remove.length==0){ // if no any match to crush,can enable button, disable arrrows and crush once
+        text_field.disabled = false;
+        text_field.style.backgroundColor = "white";
+        text_field.focus();
+        
+        what_disable([my_left,my_right,my_up,my_down, my_crush]);
+       
+     }
+     textBoard();
+      
+  },800);
+   
+  
+   //rules.moveCandiesDown();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+  // Final initialization entry point: the Javascript code inside this block
+  // runs at the end of start-up when the page has finished loading.
+  $(document).ready(function()
+  {
+    // Your code here.
+   
+    rules.prepareNewGame();
+    console.log("hello");
+   /* var collect = [[1,3],[1,4],[2,1],[2,3],[2,4]];
+  
+  //
+    for(var i= 0;i < collect.length;i++){
+       
+       var r = collect[i][0]; 
+       var c =collect[i][1]; 
+       
+      if(i>=collect.length-3){
+        board.square[r][c].color ="purple"; 
+      }
+      else{
+       board.square[r][c].color ="red"; 
+      }
+      dboard.rows[r].cells[c].style.backgroundColor =  board.square[r][c].color;
+    }  */
+    
+    textBoard(); //give color text
+  });
+  
+  
+
+  /* Event Handlers */
+  // access the candy object with info.candy
+   
+  // add a candy to the board
+  $(board).on('add',function(e,info)
+  {
+    // Your code here.
+    var c= info.candy;
+    dboard.rows[c.row].cells[c.col].style.backgroundColor = c.color;
+    
+    
+  });
+  
+  // move a candy on the board
+  $(board).on('move', function(e, info)
+  {
+    // Your code here.
+    var mau = info.candy.color;
+    var r= info.toRow; 
+    var c = info.toCol;
+    dboard.rows[r].cells[c].style.backgroundColor = mau; 
+     
+  });
+  
+  // remove a candy from the board
+  $(board).on('remove', function(e, info)
+  {
+    // Your code here.
+    var r = info.fromRow;
+    var c = info.fromCol; 
+    
+    dboard.rows[r].cells[c].style.backgroundColor = "white";
+     
+    
+    
+    
+  });
+  
+  // move a candy on the board
+  $(board).on('scoreUpdate', function(e, info)
+  {
+    // Your code here. To be implemented in pset 2.
+  });
+  
+  // new game
+  $(document).on('click', "#but_new", function(evt)
+  {
+    // Your code here.
+    board.clear();
+    rules.prepareNewGame();
+    textBoard();
+  });
+
+
+  // keyboard events to validate input text
+
+
+  $(document).on('keyup', function(evt) {
+
+    var  text_pos  = text_field.value;
+    console.log("keydow ",text_pos);
+
+    
+    if(text_pos.length ==2){ // right length ?
+     
+          
+     var r_row =false;
+     var r_col =false; 
+     var r_crush  = false;
+    
+
+     for(var x in letter){
+        if(text_pos[0] == letter[x]){
+           r_col =true;
+        }
+     }
+     for(var x in num){
+        if(parseInt(text_pos[1]) == num[x]){
+           r_row =true;
+        }
+     }
+     
+     if(r_row ==true &&r_col ==true ){ // right letter and number ? 
+        
+        fromCandy =  getfromCandy(); 
+        
+        if(rules.isMoveTypeValid(fromCandy,"up")){  //chain of disable and enable for each arrow
+           one_enable(my_up);
+           r_crush = true;
+        }
+        else{
+           what_disable([my_up]); 
+        }
+
+        if(rules.isMoveTypeValid(fromCandy,"down")){
+           one_enable(my_down);
+           r_crush = true;
+        }
+        else{
+           what_disable([my_down]); 
+        }
+
+        if(rules.isMoveTypeValid(fromCandy,"left")){
+           one_enable(my_left);
+           r_crush = true;
+        }
+        else{
+           what_disable([my_left]); 
+        }
+
+        if(rules.isMoveTypeValid(fromCandy,"right")){
+           one_enable(my_right);
+           r_crush = true;
+        }
+        else{
+           what_disable([my_right]); 
+        }
+
+     
+      
+
+
+
+
+     }
+
+     else{
+        what_disable([my_left,my_right,my_up,my_down,my_crush]);
+     }
+
+
+  }
+  else{
+   
+     what_disable([my_left,my_right,my_up,my_down,my_crush]);
+     
+  }
+    
+  });
+  
+  
+  </script>
+  
+
+
+</html>
